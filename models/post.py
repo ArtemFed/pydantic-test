@@ -3,7 +3,7 @@ from pkg.core.db import Base
 
 
 class Post(Base):
-    __tablename__ = "repository"
+    __tablename__ = "posts"
 
     id = Column(Integer, primary_key=True, index=True, unique=True)
     title = Column(String(30))

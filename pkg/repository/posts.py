@@ -1,13 +1,15 @@
+from typing import List
+
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from pkg.core.utils import get_db
 from pkg.service import service
-from models.schemas import PostCreate
+from models.schemas import PostCreate, PostList
 
 router = APIRouter()
 
 
-@router.get("/")
+@router.get("/", response_model=List[PostList])
 def post_list(db: Session = Depends(get_db)):
     return service.get_post_list(db)
 
