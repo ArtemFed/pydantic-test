@@ -2,11 +2,15 @@ from typing import List
 
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from pkg.core.utils import get_db
-from pkg.service import service
+from handlers import service
 from models.schemas import PostCreate, PostList
+from starlette.requests import Request
 
 router = APIRouter()
+
+
+def get_db(request: Request):
+    return request.state.db
 
 
 @router.get("/", response_model=List[PostList])

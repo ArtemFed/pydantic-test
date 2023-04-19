@@ -2,8 +2,8 @@ from fastapi import FastAPI
 from starlette.requests import Request
 from starlette.responses import Response
 
-from pkg.core.db import SessionLocal
-from pkg.core.routes import routes
+from models.post import SessionLocal
+from routes.routes import routes
 
 app = FastAPI()
 

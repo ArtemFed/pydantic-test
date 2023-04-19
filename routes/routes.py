@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from pkg.repository import posts
+from handlers import posts
 
 routes = APIRouter()
 
